@@ -30,9 +30,14 @@ class Recompensa(Ponto):
     def __init__(self, x, y,nome):
         super(Recompensa,self).__init__(x, y)
         self.nome=nome
-
+def conferir_recompensa(robo, recompensas):
+    ok=False
+    for recompensa in recompensas:
+        if recompensa.x == robo.x and recompensa.y == robo.y:
+            print("O robô achou a recompensa " + recompensa.nome)
+            ok = True
+    return ok
 r1=Robo(2,10)
-print(r1.x,r1.y)
-r1.mover_pra_cima()
-r1.mover_pra_direita()
-print(r1.x,r1.y)
+reward1= Recompensa(2,10,'moeda')
+recompensas =[reward1]
+conferir_recompensa(r1,recompensas)
